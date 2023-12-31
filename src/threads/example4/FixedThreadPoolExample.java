@@ -14,21 +14,26 @@ import java.util.concurrent.Executors;
  */
 
 public class FixedThreadPoolExample {
-	
+
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		
+
 		System.out.println("Thread main started");
-		
+
 		ExecutorService executorService = Executors.newFixedThreadPool(5);
 		executorService.execute(new MyTask());
 		executorService.execute(new MyTask());
 		executorService.execute(new MyTask());
 		executorService.execute(new MyTask());
 		executorService.execute(new MyTask());
-		
+
 		executorService.shutdown();
+		ExecutorService es = Executors.newFixedThreadPool(3);
+		es.execute(new MyTask());
+		es.execute(new MyTask());
+		es.shutdown();
 		
-		System.out.println("Thread main finished");
+			System.out.println("Thread main finished");
+
 	}
 }
 
@@ -42,5 +47,6 @@ class MyTask implements Runnable {
 				e.printStackTrace();
 			}
 		}
+		
 	}
 }
