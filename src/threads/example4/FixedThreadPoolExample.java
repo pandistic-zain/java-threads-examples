@@ -31,6 +31,10 @@ public class FixedThreadPoolExample {
 		es.execute(new MyTask());
 		es.execute(new MyTask());
 		es.shutdown();
+		while(!es.isTerminated()&&!executorService.isTerminated())
+		{
+			
+		}
 		
 			System.out.println("Thread main finished");
 
