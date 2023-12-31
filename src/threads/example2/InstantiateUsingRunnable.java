@@ -15,7 +15,7 @@ public class InstantiateUsingRunnable {
 		thread1.start();
 		thread2.start();
 		
-		System.out.println("Thread main finished");
+	
 	}
 }
 
@@ -35,5 +35,6 @@ class MyTask implements Runnable {
 				e.printStackTrace();
 			}
 		}
+			System.out.println("Thread main finished For" + Thread.currentThread().getName());
 	}
 }
